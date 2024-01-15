@@ -34,8 +34,6 @@ ADD /root/*.sh /root/
 RUN chmod +x /root/*.sh && \
 	/bin/bash /root/init-bash.sh
 
-RUN /bin/bash -c '/root/init-bash.sh'
-
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
   HOME="/config"
@@ -47,4 +45,4 @@ ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 EXPOSE 5175/tcp
 VOLUME /config
 
-SHELL ["/bin/bash", "-c"]
+CMD ["/bin/sh" "-c" "/root/init-bash.sh"]
