@@ -31,8 +31,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /us
 ADD /root/*.sh /root/
 
 # make executable and run bash scripts to install app
-RUN chmod +x /root/*.sh && \
-	/bin/bash /root/init-bash.sh
+RUN chmod +x /root/*.sh
 
 # Download latest of miniconda3
 RUN wget \
