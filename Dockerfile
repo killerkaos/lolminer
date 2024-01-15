@@ -45,4 +45,4 @@ ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 EXPOSE 5175/tcp
 VOLUME /config
 
-CMD ["/bin/sh" "-c" "/root/init-bash.sh"]
+CMD ["/bin/bash", "/root/init-bash.sh"]
