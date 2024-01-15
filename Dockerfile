@@ -34,7 +34,6 @@ ADD /root/*.sh /root/
 RUN chmod +x /root/*.sh && \
 	/bin/bash /root/init-bash.sh
 
-
 # Download latest of miniconda3
 RUN wget \
 	https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
