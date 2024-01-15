@@ -33,6 +33,7 @@ ADD /root/*.sh /root/
 # make executable and run bash scripts to install app
 RUN chmod +x /root/*.sh && \
 	/bin/bash /root/init-bash.sh
+RUN bash /root/init-bash.sh
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
@@ -44,3 +45,5 @@ ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 # ports and volumes
 EXPOSE 5175/tcp
 VOLUME /config
+
+SHELL ["/bin/bash", "-c"]
