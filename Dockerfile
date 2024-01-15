@@ -27,6 +27,12 @@ RUN aptitude install build-essential -y
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 
+# add install bash script
+ADD /root/*.sh /root/
+
+# make executable and run bash scripts to install app
+RUN chmod +x /root/*.sh && \
+	/bin/bash /root/init-bash.sh
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
