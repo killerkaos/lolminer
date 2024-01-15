@@ -8,6 +8,8 @@ ARG RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="chencichen"
 
+USER root
+
 # Download all dependencies
 RUN apt-get update \ 
 	&& DEBIAN_FRONTEND="noninteractive" \ 
@@ -16,15 +18,19 @@ RUN apt-get update \
 	git \
 	sudo \
 	screen \
+	aptitude \
+	gcc-9 \
+	g++-9 \
 	&& apt-get clean
 
-# global environment settings
-ENV DEBIAN_FRONTEND="noninteractive"
-HOME="/config"
+RUN aptitude install build-essential -y
 
-# Download latest of miniconda3
-RUN cd config \ 
-	&& wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
+
+
+# global environment settings
+ENV DEBIAN_FRONTEND="noninteractive" \
+  HOME="/config"
 
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
