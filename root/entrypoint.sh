@@ -41,6 +41,7 @@ fi
 echo "=========================================" > /proc/1/fd/1
 echo "COMPILING setup_cuda.py" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
+cd /root/FastChat/repositories/GPTQ-for-LLaMa/
 python setup_cuda.py install > /proc/1/fd/1
 
 sleep 900
