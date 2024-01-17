@@ -1,21 +1,23 @@
 #!/bin/bash
-
-echo "Conda init bash " > /proc/1/fd/1
-
 conda init bash
 source ~/.bashrc
 
 echo "=========================================" > /proc/1/fd/1
-echo "CONDA CREATE & ACTIVATE vicuna" > /proc/1/fd/1
+echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 conda create -n vicuna python=3.9 -y > /proc/1/fd/1
+
+echo "=========================================" > /proc/1/fd/1
+echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
+echo "=========================================" > /proc/1/fd/1
 conda activate vicuna
 
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING DEPENDENCIES and cudatoolkit (WILL TAKE A LONG TIME)" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-pip3 install protobuf==3.20 torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 -y > /proc/1/fd/1
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 -y > /proc/1/fd/1
 conda install -c conda-forge cudatoolkit-dev -y > /proc/1/fd/1
+pip install protobuf==3.20 > /proc/1/fd/1
 
 echo "=========================================" > /proc/1/fd/1
 echo "DEPENDENCIES ALL INSTALLED" > /proc/1/fd/1
