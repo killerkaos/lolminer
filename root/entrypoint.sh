@@ -2,7 +2,7 @@
 conda init bash
 source ~/.bashrc
 
-if [ ! -d "/root/miniconda/envs/vicuna" ]; then
+if [ ! -d /root/miniconda/envs/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
@@ -23,12 +23,19 @@ echo "=========================================" > /proc/1/fd/1
 fi
 
 echo "=========================================" > /proc/1/fd/1
+echo "SETUP CUDA HOME & REACTIVATE vicuna" > /proc/1/fd/1
+echo "=========================================" > /proc/1/fd/1
+conda env config vars set CUDA_HOME="/root/miniconda/envs/vicuna" > /proc/1/fd/1
+conda deactivate > /proc/1/fd/1
+conda activate vicuna > /proc/1/fd/1
+
+echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING REQUIREMENT for Fastchat" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 cd /root/FastChat
-pip install -r requirements.txt > /proc/1/fd/1
+pip3 install -e . > /proc/1/fd/1
 
-if [ ! -d "/root/FastChat/repositories/GPTQ-for-LLaMa" ]; then
+if [ ! -d /root/FastChat/repositories/GPTQ-for-LLaMa ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CREATING REPOSITORIES & DOWNLOADING GPTQ for LLaMa" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
@@ -38,11 +45,13 @@ git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda > /proc/1/fd/1
 cd GPTQ-for-LLaMa
 fi
 
+if [ -f /root/FastChat/repositories/GPTQ-for-LLaMa/quant_cuda.cpp ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "COMPILING setup_cuda.py" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 cd /root/FastChat/repositories/GPTQ-for-LLaMa/
 python setup_cuda.py install > /proc/1/fd/1
+fi
 
 sleep 900
 exec "$@"
