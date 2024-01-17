@@ -15,7 +15,7 @@ conda activate vicuna
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING DEPENDENCIES and cudatoolkit (WILL TAKE A LONG TIME)" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 -y > /proc/1/fd/1
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 > /proc/1/fd/1
 conda install -c conda-forge cudatoolkit-dev -y > /proc/1/fd/1
 pip install protobuf==3.20 > /proc/1/fd/1
 
