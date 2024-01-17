@@ -53,6 +53,14 @@ cd /root/FastChat/repositories/GPTQ-for-LLaMa/
 python setup_cuda.py install > /proc/1/fd/1
 fi
 
+if [ ! -f /root/FastChat/models/anon8231489123_vicuna-13b-GPTQ-4bit-128g ]; then
+echo "=========================================" > /proc/1/fd/1
+echo "DOWNLOADING anon8231489123/vicuna-13b-GPTQ-4bit-128g" > /proc/1/fd/1
+echo "=========================================" > /proc/1/fd/1
+cd /root/FastChat/
+python download-model.py anon8231489123/vicuna-13b-GPTQ-4bit-128g > /proc/1/fd/1
+fi
+
 echo "=========================================" > /proc/1/fd/1
 echo "FINISH INSTALLATION" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
