@@ -45,7 +45,7 @@ git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda > /proc/1/fd/1
 cd GPTQ-for-LLaMa
 fi
 
-if [ -f /root/miniconda/envs/vicuna/lib/python3.9/site-packages/quant_cuda-0.0.0-py3.9-linux-x86_64.egg ]; then
+if [ ! -f /root/miniconda/envs/vicuna/lib/python3.9/site-packages/quant_cuda-0.0.0-py3.9-linux-x86_64.egg ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "COMPILING setup_cuda.py" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
