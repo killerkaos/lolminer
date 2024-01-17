@@ -27,7 +27,25 @@ RUN aptitude install build-essential -y
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 
 # add install bash script
-ADD /root/*.sh /root/
+ADD /root/*.sh /run/
+
+# make executable and run bash scripts to install app
+RUN chmod +x /run/entrypoint.sh
+
+# Download latest of miniconda3
+RUN wget \
+	https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda \
+	&& rm -f Miniconda3-latest-Linux-x86_64.sh
+
+# Clone the forked repository of FastChat
+# Clone the repository of GPTQ-for-LLaMa into FastChat repositories folder
+RUN cd root \
+	&& git clone https://github.com/thisserand/FastChat.git \
+	&& cd FastChat \
+	&& mkdir repositories \
+	&& cd repositories \
+	&& git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
@@ -39,3 +57,5 @@ ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 # ports and volumes
 EXPOSE 5175/tcp
 VOLUME /config
+
+ENTRYPOINT ["/run/entrypoint.sh"]
