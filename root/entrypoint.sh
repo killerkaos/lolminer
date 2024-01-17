@@ -45,13 +45,17 @@ git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda > /proc/1/fd/1
 cd GPTQ-for-LLaMa
 fi
 
-if [ -f /root/FastChat/repositories/GPTQ-for-LLaMa/quant_cuda.cpp ]; then
+if [ -f /root/miniconda/envs/vicuna/lib/python3.9/site-packages/quant_cuda-0.0.0-py3.9-linux-x86_64.egg ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "COMPILING setup_cuda.py" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 cd /root/FastChat/repositories/GPTQ-for-LLaMa/
 python setup_cuda.py install > /proc/1/fd/1
 fi
+
+echo "=========================================" > /proc/1/fd/1
+echo "FINISH INSTALLATION" > /proc/1/fd/1
+echo "=========================================" > /proc/1/fd/1
 
 sleep 900
 exec "$@"
