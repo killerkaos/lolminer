@@ -51,6 +51,13 @@ RUN cd root \
 ENV DEBIAN_FRONTEND="noninteractive" \
   HOME="/config"
 
+# Make non-activate conda commands available.
+ENV PATH=/root/miniconda/bin:$PATH
+
+# Make conda activate command available from /bin/bash --login shells.
+RUN echo "export PATH=/usr/local/cuda/bin/:/root/miniconda/conda/bin:\$PATH" >> ~/.profile 
+RUN echo "source /root/miniconda/etc/profile.d/conda.sh" >> ~/.profile
+
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
