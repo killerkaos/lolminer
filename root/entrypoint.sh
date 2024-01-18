@@ -33,7 +33,7 @@ echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING REQUIREMENT for Fastchat" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 cd /root/FastChat
-pip3 install -e . > /proc/1/fd/1
+pip3 install -e ".[model_worker,webui]" > /proc/1/fd/1
 
 if [ ! -d /root/FastChat/repositories/GPTQ-for-LLaMa ]; then
 echo "=========================================" > /proc/1/fd/1
