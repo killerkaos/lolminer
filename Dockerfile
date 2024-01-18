@@ -41,7 +41,7 @@ RUN wget \
 # Clone the forked repository of FastChat
 # Clone the repository of GPTQ-for-LLaMa into FastChat repositories folder
 RUN cd root \
-	&& git clone https://github.com/lm-sys/FastChat.git \
+	&& git clone https://github.com/killerkaos/FastChat.git \
 	&& cd FastChat \
 	&& mkdir repositories \
 	&& cd repositories \
