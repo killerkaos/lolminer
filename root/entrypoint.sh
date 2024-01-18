@@ -80,4 +80,5 @@ echo "EXECUTING FastChat worker" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 screen -S webgui -dm python -m fastchat.serve.gradio_web_server --controller-url "http://127.0.0.1:21001" --port 5175 > /proc/1/fd/1
 
+sleep 900
 exec "$@"
