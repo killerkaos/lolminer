@@ -78,6 +78,6 @@ nohup python -m fastchat.serve.model_worker --model-name anon8231489123/vicuna-1
 echo "=========================================" > /proc/1/fd/1
 echo "EXECUTING FastChat worker" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-nohup python -m fastchat.serve.gradio_web_server --port 8888 & > /proc/1/fd/1
+nohup python -m fastchat.serve.gradio_web_server --port 5175 & > /proc/1/fd/1
 
 exec "$@"
