@@ -49,5 +49,6 @@ fi
 echo "=========================================" > /proc/1/fd/1
 echo "FINISH INSTALLATION" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
+rm -r /config/.cache
 cd /root/
 touch installed
