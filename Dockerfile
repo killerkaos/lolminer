@@ -28,7 +28,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /us
 
 # downlaod install bash script from github
 RUN mkdir custom-cont-init.d \
-	&& cd custom-cont-init.d
+	&& cd custom-cont-init.d \
 	&& wget https://raw.githubusercontent.com/killerkaos/vicuna/main/custom-cont-init.d/init-d.sh
 
 # make executable and run bash scripts to install app
