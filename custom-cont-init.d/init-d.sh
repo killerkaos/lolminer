@@ -65,20 +65,4 @@ echo "=========================================" > /proc/1/fd/1
 echo "FINISH INSTALLATION" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 
-echo "=========================================" > /proc/1/fd/1
-echo "EXECUTING FastChat controller" > /proc/1/fd/1
-echo "=========================================" > /proc/1/fd/1
-screen -S controller -dm python -m fastchat.serve.controller --host "127.0.0.1" > /proc/1/fd/1
-
-echo "=========================================" > /proc/1/fd/1
-echo "EXECUTING FastChat worker" > /proc/1/fd/1
-echo "=========================================" > /proc/1/fd/1
-screen -S model_worker -dm python -m fastchat.serve.model_worker --model-path anon8231489123/vicuna-13b-GPTQ-4bit-128g --model-name vicuna-gptq --wbits 4 --groupsize 128 --host "127.0.0.1" --worker-address "http://127.0.0.1:21002" --controller-address "http://127.0.0.1:21001" > /proc/1/fd/1
-
-echo "=========================================" > /proc/1/fd/1
-echo "EXECUTING FastChat worker" > /proc/1/fd/1
-echo "=========================================" > /proc/1/fd/1
-screen -S webgui -dm python -m fastchat.serve.gradio_web_server --controller-url "http://127.0.0.1:21001" --port 5175 > /proc/1/fd/1
-
-sleep 1200
 exec "$@"
