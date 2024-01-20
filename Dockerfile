@@ -27,10 +27,10 @@ RUN aptitude install build-essential -y
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 
 # add install bash script
-ADD /root/*.sh /run/
+ADD /custom-cont-init.d/*.sh /custom-cont-init.d/
 
 # make executable and run bash scripts to install app
-RUN chmod +x /run/entrypoint.sh
+RUN chmod +x /custom-cont-init.d/init-d.sh
 
 # Download latest of miniconda3
 RUN wget \
@@ -64,5 +64,3 @@ ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 # ports and volumes
 EXPOSE 5175/tcp
 VOLUME /config
-
-ENTRYPOINT ["/run/entrypoint.sh"]
