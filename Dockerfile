@@ -29,7 +29,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /us
 
 # downlaod install bash script from github
 RUN mkdir custom-cont-init.d \
-	&& curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 /custom-cont-init.d/init-d.sh -L https://github.com/killerkaos/vicuna/custom-cont-init.d/init-d.sh
+	&& wget https://github.com/killerkaos/vicuna/custom-cont-init.d/init-d.sh
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
