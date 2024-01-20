@@ -2,7 +2,9 @@
 conda init bash
 source ~/.bashrc
 
-# make the folders
+echo "=========================================" > /proc/1/fd/1
+echo "MAKING THE FOLDERS" > /proc/1/fd/1
+echo "=========================================" > /proc/1/fd/1
 
 if [ ! -d /config/miniconda ]; then
 mkdir -p \
