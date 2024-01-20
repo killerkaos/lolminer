@@ -3,7 +3,7 @@ conda init bash
 source ~/.bashrc
 
 echo "=========================================" > /proc/1/fd/1
-echo "MAKING THE FOLDERS" > /proc/1/fd/1
+echo "MAKING THE FOLDERS AND LINKING THEM" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 
 if [ ! -d /config/miniconda ]; then
