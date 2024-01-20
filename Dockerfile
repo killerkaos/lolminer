@@ -26,8 +26,8 @@ RUN aptitude install build-essential -y
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 
-# add install bash script
-ADD /custom-cont-init.d/*.sh /custom-cont-init.d/
+# downlaod install bash script from github
+RUN git checkout https://github.com/killerkaos/vicuna/custom-cont-init.d
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
@@ -37,15 +37,6 @@ RUN wget \
 	https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda \
 	&& rm -f Miniconda3-latest-Linux-x86_64.sh
-
-# Clone the forked repository of FastChat
-# Clone the repository of GPTQ-for-LLaMa into FastChat repositories folder
-RUN cd root \
-	&& git clone https://github.com/killerkaos/FastChat.git \
-	&& cd FastChat \
-	&& mkdir repositories \
-	&& cd repositories \
-	&& git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
