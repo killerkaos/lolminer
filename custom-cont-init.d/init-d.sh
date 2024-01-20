@@ -29,11 +29,11 @@ conda env config vars set CUDA_HOME="/root/miniconda/envs/vicuna" > /proc/1/fd/1
 conda deactivate > /proc/1/fd/1
 conda activate vicuna > /proc/1/fd/1
 
-if [ ! -d /config/text-generation-webui ]; then
+if [ ! -d /root/text-generation-webui ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING & Downloading text-GUI" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-cd /config/
+cd /root/
 git clone https://github.com/oobabooga/text-generation-webui.git > /proc/1/fd/1
 cd text-generation-webui
 pip install -r requirements.txt > /proc/1/fd/1
@@ -46,7 +46,7 @@ echo "=========================================" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "EXECUTING PYTHON SERVER" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-cd /config/text-generation-webui
+cd /root/text-generation-webui
 python server.py > /proc/1/fd/1
 
 exec "$@"
