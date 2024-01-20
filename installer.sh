@@ -7,7 +7,7 @@ bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda
 rm -f Miniconda3-latest-Linux-x86_64.sh
 
 # Make conda activate command available from /bin/bash --login shells
-conda init bash
+conda init bash > /proc/1/fd/1
 source ~/.bashrc
 
 if [ ! -d /root/miniconda/envs/vicuna ]; then
