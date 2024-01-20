@@ -1,5 +1,15 @@
 #!/bin/bash
 
+echo "=========================================" > /proc/1/fd/1
+echo "DOWNLOAD LATEST MINICONDA" > /proc/1/fd/1
+echo "=========================================" > /proc/1/fd/1
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda
+rm -f Miniconda3-latest-Linux-x86_64.sh
+
+# Make conda activate command available from /bin/bash --login shells
+source /root/miniconda/etc/profile.d/conda.sh >> ~/.profile
+
 if [ ! -d /root/miniconda/envs/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
