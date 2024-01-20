@@ -36,7 +36,7 @@ echo "=========================================" > /proc/1/fd/1
 cd /root/
 git clone https://github.com/oobabooga/text-generation-webui.git > /proc/1/fd/1
 cd text-generation-webui
-pip install -r requirements.text > /proc/1/fd/1
+pip install -r requirements.txt > /proc/1/fd/1
 fi
 
 echo "=========================================" > /proc/1/fd/1
