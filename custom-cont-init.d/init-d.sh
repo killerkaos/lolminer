@@ -19,6 +19,6 @@ bash installer.sh
 rm -f installer.sh
 
 RUN wget
-bash start.sh
+bash startup.sh
 
 exec "$@"
