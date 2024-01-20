@@ -28,7 +28,6 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /us
 
 # add install bash script
 COPY custom-cont-init.d ./custom-cont-init.d/
-COPY custom-cont-init.d/init-folders ./custom-cont-init.d/init-folders/
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
