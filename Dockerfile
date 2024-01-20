@@ -14,6 +14,7 @@ RUN apt-get update \
 	apt-get install -y \
 	wget \
 	git \
+ 	curl \
 	sudo \
 	screen \
 	aptitude \
@@ -27,7 +28,8 @@ RUN aptitude install build-essential -y
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 
 # downlaod install bash script from github
-RUN git checkout https://github.com/killerkaos/vicuna/custom-cont-init.d
+RUN mkdir custom-cont-init.d \
+	&& curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 /custom-cont-init.d/init-d.sh -L https://github.com/killerkaos/vicuna/custom-cont-init.d/init-d.sh
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
