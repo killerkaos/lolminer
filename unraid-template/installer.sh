@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 if [ ! -d /root/miniconda/envs/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
