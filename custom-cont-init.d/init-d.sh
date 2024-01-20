@@ -16,9 +16,11 @@ mkdir -p \
     /config/text-generation-webui
 fi
 
+if [ ! -f /root/installed ]; then
 RUN wget https://raw.githubusercontent.com/killerkaos/vicuna/main/installer.sh
 bash installer.sh
 rm -f installer.sh
+fi
 
 RUN wget https://raw.githubusercontent.com/killerkaos/vicuna/main/startup.sh
 bash startup.sh
