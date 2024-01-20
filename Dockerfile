@@ -26,8 +26,7 @@ RUN aptitude install build-essential -y
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 
-# downlaod install bash script from github
-RUN wget https://raw.githubusercontent.com/killerkaos/vicuna/main/custom-cont-init.d/init-d.sh -P /custom-cont-init.d
+
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
