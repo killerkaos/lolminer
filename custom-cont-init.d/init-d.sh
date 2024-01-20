@@ -2,6 +2,8 @@
 conda init bash
 source ~/.bashrc
 
+# exit script if return code != 0
+
 if [ ! -d /root/miniconda/envs/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
