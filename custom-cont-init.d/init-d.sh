@@ -18,10 +18,10 @@ else
 fi
 
 # Execute installer script
+echo "=========================================" > /proc/1/fd/1
+echo "INSTALLER script" > /proc/1/fd/1
+echo "=========================================" > /proc/1/fd/1
 if [ ! -f /root/installed ]; then
-    echo "=========================================" > /proc/1/fd/1
-    echo "INSTALLER script" > /proc/1/fd/1
-    echo "=========================================" > /proc/1/fd/1
     wget https://raw.githubusercontent.com/killerkaos/vicuna/main/installer.sh
     bash installer.sh
     rm -f installer.sh
