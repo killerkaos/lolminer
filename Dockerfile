@@ -14,17 +14,8 @@ RUN apt-get update \
 	apt-get install -y \
 	wget \
 	git \
-	sudo \
-	screen \
-	aptitude \
 	libxml2 \
-	gcc-9 \
-	g++-9 \
 	&& apt-get clean
-
-RUN aptitude install build-essential -y
-
-RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
 
 # add install bash script
 COPY custom-cont-init.d /custom-cont-init.d/
