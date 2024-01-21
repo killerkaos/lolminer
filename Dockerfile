@@ -38,15 +38,6 @@ RUN wget \
 	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda \
 	&& rm -f Miniconda3-latest-Linux-x86_64.sh
 
-# Clone the forked repository of FastChat
-# Clone the repository of GPTQ-for-LLaMa into FastChat repositories folder
-RUN cd root \
-	&& git clone https://github.com/killerkaos/FastChat.git \
-	&& cd FastChat \
-	&& mkdir repositories \
-	&& cd repositories \
-	&& git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda
-
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
   HOME="/config"
