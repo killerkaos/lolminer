@@ -32,9 +32,31 @@ COPY custom-cont-init.d /custom-cont-init.d/
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
 
+# Download latest of miniconda3
+RUN wget \
+	https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda \
+	&& rm -f Miniconda3-latest-Linux-x86_64.sh
+
+# Clone the forked repository of FastChat
+# Clone the repository of GPTQ-for-LLaMa into FastChat repositories folder
+RUN cd root \
+	&& git clone https://github.com/killerkaos/FastChat.git \
+	&& cd FastChat \
+	&& mkdir repositories \
+	&& cd repositories \
+	&& git clone https://github.com/oobabooga/GPTQ-for-LLaMa.git -b cuda
+
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
   HOME="/config"
+
+# Make non-activate conda commands available.
+ENV PATH=/root/miniconda/bin:$PATH
+
+# Make conda activate command available from /bin/bash --login shells.
+RUN echo "export PATH=/usr/local/cuda/bin/:/root/miniconda/conda/bin:\$PATH" >> ~/.profile 
+RUN echo "source /root/miniconda/etc/profile.d/conda.sh" >> ~/.profile
 
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
