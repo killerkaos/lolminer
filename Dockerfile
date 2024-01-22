@@ -18,7 +18,7 @@ RUN apt-get update \
 	&& apt-get clean
 
 # add install bash script
-COPY --chown=abc:abc custom-cont-init.d /custom-cont-init.d/
+COPY custom-cont-init.d /custom-cont-init.d/
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
