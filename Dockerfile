@@ -18,21 +18,22 @@ RUN apt-get update \
 	&& apt-get clean
 
 # add install bash script
-COPY custom-cont-init.d /custom-cont-init.d/
+COPY --chown=abc:abc custom-cont-init.d /custom-cont-init.d/
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
+
+ENV HOME=/home/abc
+RUN mkdir /home/abc && \
+    chown -R abc:abc /home/abc
 
 # Download latest of miniconda3
 RUN wget \
 	https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /home/abc/miniconda \
 	&& rm -f Miniconda3-latest-Linux-x86_64.sh
-
-# global environment settings
-ENV DEBIAN_FRONTEND="noninteractive" \
-  HOME="/config"
-
+	&& chown -R abc:abc /home/abc/miniconda
+ 
 # Make non-activate conda commands available.
 ENV PATH=/home/abc/miniconda/bin:$PATH
 
