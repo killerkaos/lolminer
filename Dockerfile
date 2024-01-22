@@ -26,7 +26,7 @@ RUN chmod +x /custom-cont-init.d/init-d.sh
 # Download latest of miniconda3
 RUN wget \
 	https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda \
+	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /home/abc/miniconda \
 	&& rm -f Miniconda3-latest-Linux-x86_64.sh
 
 # global environment settings
@@ -34,10 +34,10 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   HOME="/config"
 
 # Make non-activate conda commands available.
-ENV PATH=/root/miniconda/bin:$PATH
+ENV PATH=/home/abc/miniconda/bin:$PATH
 
 # Make conda activate command available from /bin/bash --login shells.
-RUN echo "source /root/miniconda/etc/profile.d/conda.sh" >> ~/.profile
+RUN echo "source /home/abc/miniconda/etc/profile.d/conda.sh" >> ~/.profile
 
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
