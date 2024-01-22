@@ -27,7 +27,7 @@ RUN mkdir /home/abc && \
     chown -R abc:abc /home/abc
     
 ENV XDG_CONFIG_HOME=/home/abc
-ENV HOME= /home/abc
+ENV HOME=/home/abc
 
 # Download latest of miniconda3
 RUN wget \
