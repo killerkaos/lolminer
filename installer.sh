@@ -2,6 +2,8 @@
 conda init bash > /proc/1/fd/1
 source ~/.bashrc
 
+export PATH="/home/abc/miniconda3/bin:$PATH"
+
 if [ ! -d /root/miniconda/envs/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
