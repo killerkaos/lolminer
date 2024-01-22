@@ -1,4 +1,13 @@
 #!/bin/bash
+
+echo "-------------------------------------"
+# permissions
+echo "chown'ing directory to ensure correct permissions."
+chown -R abc:abc /home/abc
+chown -R abc:abc /config
+echo "Done!"
+echo -e "-------------------------------------\n"
+
 echo "=========================================" > /proc/1/fd/1
 echo "MAKING THE FOLDERS AND LINKING THEM" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
