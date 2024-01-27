@@ -28,8 +28,8 @@ echo "=========================================" > /proc/1/fd/1
 echo "SETUP CUDA HOME & REACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 conda env config vars set CUDA_HOME="/home/abc/vicuna" > /proc/1/fd/1
-source deactivate > /proc/1/fd/1
-source activate /home/abc/vicuna > /proc/1/fd/1
+conda deactivate > /proc/1/fd/1
+conda activate /home/abc/vicuna > /proc/1/fd/1
 
 if [ ! -d /home/abc/text-generation-webui ]; then
 echo "=========================================" > /proc/1/fd/1
