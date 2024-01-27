@@ -1,4 +1,4 @@
-/usr/bin/with-contenv bash
+#!/usr/bin/with-contenv bash
 
 # Make non-activate conda commands available.
 export PATH=/root/miniconda/bin:$PATH
