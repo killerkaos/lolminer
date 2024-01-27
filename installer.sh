@@ -1,21 +1,18 @@
 /usr/bin/with-contenv bash
-conda init bash > /proc/1/fd/1
-source ~/.bashrc
 
 # Make non-activate conda commands available.
-ENV PATH=/home/abc/miniconda/bin:$PATH
-
-
+export PATH=/home/abc/miniconda/bin:$PATH
+export use_venv=0
 
 if [ ! -d /home/abc/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-    conda create -n vicuna python=3.11 -p home/abc/vicuna -y > /proc/1/fd/1
+    conda create -n vicuna python=3.11 -p /home/abc/vicuna -y > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-conda activate vicuna
+source activate /home/abc/vicuna
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING DEPENDENCIES: Torch, cudatoolkit & protobuf (WILL TAKE A LONG TIME)" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
@@ -30,9 +27,9 @@ fi
 echo "=========================================" > /proc/1/fd/1
 echo "SETUP CUDA HOME & REACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-conda env config vars set CUDA_HOME="/home/abc/miniconda/envs/vicuna" > /proc/1/fd/1
+conda env config vars set CUDA_HOME="/home/abc/vicuna" > /proc/1/fd/1
 conda deactivate > /proc/1/fd/1
-conda activate vicuna > /proc/1/fd/1
+source activate /home/abc/vicuna > /proc/1/fd/1
 
 if [ ! -d /home/abc/text-generation-webui ]; then
 echo "=========================================" > /proc/1/fd/1
