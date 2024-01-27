@@ -22,13 +22,12 @@ COPY custom-cont-init.d /custom-cont-init.d/
 
 # make executable and run bash scripts to install app
 RUN chmod +x /custom-cont-init.d/init-d.sh
-
-RUN mkdir /home/abc && \
-    chown -R abc:abc /home/abc
     
 # global environment settings
-ENV DEBIAN_FRONTEND="noninteractive" \
-  HOME="/home/abc"
+ENV XDG_CONFIG_HOME=/home/abc
+ENV HOME=/home/abc
+RUN mkdir /home/abc && \
+    chown -R abc:abc /home/abc
   
 # Download latest of miniconda3
 RUN wget \
