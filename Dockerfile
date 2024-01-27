@@ -35,12 +35,6 @@ RUN wget \
 	&& bash Miniconda3-latest-Linux-x86_64.sh -b \
 	&& rm -f Miniconda3-latest-Linux-x86_64.sh
 
-# Make non-activate conda commands available.
-ENV PATH=/home/abc/miniconda/bin:$PATH
-
-# Make conda activate command available from /bin/bash --login shells.
-RUN echo "source /home/abc/miniconda/etc/profile.d/conda.sh" >> ~/.profile
-
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
