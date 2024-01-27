@@ -12,7 +12,7 @@ echo "=========================================" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-     source activate vicuna > /proc/1/fd/1
+    source activate /home/abc/vicuna > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING DEPENDENCIES: Torch, cudatoolkit & protobuf (WILL TAKE A LONG TIME)" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
@@ -29,7 +29,7 @@ echo "SETUP CUDA HOME & REACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 conda env config vars set CUDA_HOME="/home/abc/vicuna" > /proc/1/fd/1
 source deactivate > /proc/1/fd/1
-source activate vicuna > /proc/1/fd/1
+source activate /home/abc/vicuna > /proc/1/fd/1
 
 if [ ! -d /home/abc/text-generation-webui ]; then
 echo "=========================================" > /proc/1/fd/1
