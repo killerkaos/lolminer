@@ -30,8 +30,8 @@ RUN mkdir /home/abc && \
     chown -R abc:abc /home/abc
   
 # Download latest of miniconda3
-RUN wget \
-	https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+RUN cd /tmp \
+	&& wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 	&& bash Miniconda3-latest-Linux-x86_64.sh -b \
 	&& rm -f Miniconda3-latest-Linux-x86_64.sh \
  	&& chown -R abc:abc /root \
