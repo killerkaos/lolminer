@@ -2,7 +2,7 @@
 conda init bash > /proc/1/fd/1
 source ~/.bashrc
 
-if [ ! -d /root/miniconda/envs/vicuna ]; then
+if [ ! -d /home/abc/miniconda/envs/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
@@ -25,15 +25,15 @@ fi
 echo "=========================================" > /proc/1/fd/1
 echo "SETUP CUDA HOME & REACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-conda env config vars set CUDA_HOME="/root/miniconda/envs/vicuna" > /proc/1/fd/1
+conda env config vars set CUDA_HOME="/home/abc/miniconda/envs/vicuna" > /proc/1/fd/1
 conda deactivate > /proc/1/fd/1
 conda activate vicuna > /proc/1/fd/1
 
-if [ ! -d /root/text-generation-webui ]; then
+if [ ! -d /home/abc/text-generation-webui ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING & Downloading text-GUI" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-cd /root/
+cd /home/abc/
 git clone https://github.com/oobabooga/text-generation-webui.git > /proc/1/fd/1
 cd text-generation-webui
 pip install -r requirements.txt > /proc/1/fd/1
@@ -42,6 +42,5 @@ fi
 echo "=========================================" > /proc/1/fd/1
 echo "FINISH INSTALLATION" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-rm -r /config/.cache
-cd /root/
+cd /home/abc/
 touch installed
