@@ -12,7 +12,7 @@ echo "=========================================" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-    source activate /home/abc/vicuna > /proc/1/fd/1
+    conda activate /home/abc/vicuna > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING DEPENDENCIES: Torch, cudatoolkit & protobuf (WILL TAKE A LONG TIME)" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
