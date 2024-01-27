@@ -1,4 +1,4 @@
-#!/bin/bash
+/usr/bin/with-contenv bash
 conda init bash > /proc/1/fd/1
 source ~/.bashrc
 
