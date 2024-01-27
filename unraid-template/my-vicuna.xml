@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>Vicuna</Name>
-  <Repository>chencichen/vicuna:latest</Repository>
+  <Repository>chencichen/vicuna</Repository>
   <Registry>https://hub.docker.com/r/chencichen/vicuna/</Registry>
   <Network>proxynet</Network>
   <MyIP/>
@@ -11,7 +11,7 @@
   <Project>https://hub.docker.com/r/chencichen/vicuna/</Project>
   <Overview>Vicuna AI</Overview>
   <Category>AI: Status:Beta</Category>
-  <WebUI>http://[IP]:[PORT:5175]/</WebUI>
+  <WebUI>http://[IP]:[PORT:7860]/</WebUI>
   <TemplateURL/>
   <Icon>https://lmsys.org/images/blog/vicuna/vicuna.jpeg</Icon>
   <ExtraParams>--runtime=nvidia</ExtraParams>
@@ -21,10 +21,12 @@
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="WebUI" Target="5175" Default="5175" Mode="tcp" Description="http" Type="Port" Display="always" Required="true" Mask="false">5175</Config>
-  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/vicuna" Mode="rw" Description="Contains all content" Type="Path" Display="advanced" Required="true" Mask="false"/>
+  <Config Name="WebUI" Target="7860" Default="7860" Mode="tcp" Description="http" Type="Port" Display="always" Required="true" Mask="false">7860</Config>
   <Config Name="NVIDIA Driver Capabilities" Target="NVIDIA_DRIVER_CAPABILITIES" Default="all" Mode="" Description="" Type="Variable" Display="always" Required="false">all</Config>
-  <Config Name="NVIDIA Visible" Target="NVIDIA_VISIBLE_DEVICES" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">GPU-31ec84b6-91f8-b781-7770-76b6841a5bcb</Config>
+  <Config Name="NVIDIA Visible" Target="NVIDIA_VISIBLE_DEVICES" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">all</Config>
+  <Config Name="textwebgui" Target="/home/abc/text-generation-webui/" Default="/mnt/cache/appdata/vicuna/text-generation-webui/" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/vicuna/text-generation-webui/</Config>
+  <Config Name="miniconda" Target="/home/abc/miniconda/" Default="/mnt/cache/appdata/vicuna/miniconda/" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/vicuna/miniconda/</Config>
+  <Config Name="cache" Target="/home/abc/.cache" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/vicuna/cache</Config>
   <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
   <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
