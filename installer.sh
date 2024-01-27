@@ -2,11 +2,11 @@
 conda init bash > /proc/1/fd/1
 source ~/.bashrc
 
-if [ ! -d /home/abc/miniconda/envs/vicuna ]; then
+if [ ! -d /home/abc/envs/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-conda create -n vicuna python=3.11 -y > /proc/1/fd/1
+    conda create -n vicuna python=3.11 -p home/abc/env -y > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
