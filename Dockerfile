@@ -32,10 +32,9 @@ RUN mkdir /home/abc && \
 # Download latest of miniconda3
 RUN cd /tmp \
 	&& wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-	&& bash Miniconda3-latest-Linux-x86_64.sh -b \
+	&& bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda\
 	&& rm -f Miniconda3-latest-Linux-x86_64.sh \
  	&& chown -R abc:abc /root \
-  	&& chown -R abc:abc /home/abc/miniconda3
     	
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
