@@ -3,7 +3,7 @@
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLER script" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-if [ ! -f /root/installed ]; then
+if [ ! -f /home/abc/installed ]; then
     wget https://raw.githubusercontent.com/killerkaos/vicuna/main/installer.sh > /proc/1/fd/1
     bash installer.sh
     rm -f installer.sh
