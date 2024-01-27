@@ -8,7 +8,7 @@ if [ ! -d /home/abc/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-    conda create -p /home/abc/vicuna -n vicuna python=3.11 -y > /proc/1/fd/1
+    conda create -p /home/abc/vicuna python=3.11 -y > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
