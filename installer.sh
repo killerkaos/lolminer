@@ -16,9 +16,9 @@ echo "=========================================" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLING DEPENDENCIES: Torch, cudatoolkit & protobuf (WILL TAKE A LONG TIME)" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 > /proc/1/fd/1
-conda install -y -c "nvidia/label/cuda-12.1.1" cuda-runtime -y > /proc/1/fd/1
-pip install protobuf==3.20 > /proc/1/fd/1
+    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 > /proc/1/fd/1
+    conda install -y -c "nvidia/label/cuda-12.1.1" cuda-runtime -y > /proc/1/fd/1
+    pip install protobuf==3.20 > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "DEPENDENCIES ALL INSTALLED" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
