@@ -1,5 +1,12 @@
 #!/bin/bash
-# Execute installer script
+
+# permissions
+echo "chown'ing directory to ensure correct permissions."
+chown -R abc:abc /home/abc
+chown -R abc:abc /config
+echo "Done!"
+
+#Execute installer script
 echo "=========================================" > /proc/1/fd/1
 echo "INSTALLER script" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
