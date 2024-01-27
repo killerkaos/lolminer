@@ -1,14 +1,14 @@
 /usr/bin/with-contenv bash
 
 # Make non-activate conda commands available.
-export PATH=/home/abc/miniconda3/bin:$PATH
+export PATH=/root/miniconda/bin:$PATH
 export use_venv=0
 
-if [ ! -d /home/abc/miniconda3/envs/vicuna ]; then
+if [ ! -d /home/abc/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-    conda create -n vicuna python=3.11 -y > /proc/1/fd/1
+    conda create -p /home/abc/vicuna -n vicuna python=3.11 -y > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
@@ -27,8 +27,8 @@ fi
 echo "=========================================" > /proc/1/fd/1
 echo "SETUP CUDA HOME & REACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-conda env config vars set CUDA_HOME="/home/abc/miniconda3/envs/vicuna" > /proc/1/fd/1
-conda deactivate > /proc/1/fd/1
+conda env config vars set CUDA_HOME="/home/abc/vicuna" > /proc/1/fd/1
+source deactivate > /proc/1/fd/1
 source activate vicuna > /proc/1/fd/1
 
 if [ ! -d /home/abc/text-generation-webui ]; then
