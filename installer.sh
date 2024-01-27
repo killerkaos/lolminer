@@ -2,11 +2,16 @@
 conda init bash > /proc/1/fd/1
 source ~/.bashrc
 
-if [ ! -d /home/abc/envs/vicuna ]; then
+# Make non-activate conda commands available.
+ENV PATH=/home/abc/miniconda/bin:$PATH
+
+
+
+if [ ! -d /home/abc/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
-    conda create -n vicuna python=3.11 -p home/abc/env -y > /proc/1/fd/1
+    conda create -n vicuna python=3.11 -p home/abc/vicuna -y > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA ACTIVATE vicuna" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
