@@ -1,4 +1,4 @@
-#!/bin/bash
+/usr/bin/with-contenv bash
 
 # permissions
 echo "chown'ing directory to ensure correct permissions."
