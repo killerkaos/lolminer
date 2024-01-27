@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/with-contenv bash
 source activate vicuna
 
 echo "=========================================" > /proc/1/fd/1
