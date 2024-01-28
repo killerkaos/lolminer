@@ -2,10 +2,6 @@
 conda init bash > /proc/1/fd/1
 source ~/.bashrc
 
-# Make non-activate conda commands available.
-export PATH=/root/miniconda/bin:$PATH
-export use_venv=0
-
 if [ ! -d /home/abc/vicuna ]; then
 echo "=========================================" > /proc/1/fd/1
 echo "CONDA CREATE vicuna" > /proc/1/fd/1
