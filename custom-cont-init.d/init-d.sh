@@ -11,11 +11,11 @@ echo "=========================================" > /proc/1/fd/1
 echo "INSTALLER script" > /proc/1/fd/1
 echo "=========================================" > /proc/1/fd/1
 if [ ! -f /home/abc/installed ]; then
-    wget https://raw.githubusercontent.com/killerkaos/vicuna/main/installer.sh > /proc/1/fd/1
+    wget https://raw.githubusercontent.com/killerkaos/lolminer/main/installer.sh > /proc/1/fd/1
     bash installer.sh
     rm -f installer.sh
 else
-    echo "Vicuna installed, skip installer" > /proc/1/fd/1
+    echo "NVIDIA drivers installed, skip installer" > /proc/1/fd/1
 fi
 
 # Execute Startup script
