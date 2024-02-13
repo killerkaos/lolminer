@@ -32,8 +32,7 @@ RUN mkdir /home/abc \
     && chown -R abc:abc /home/abc \
     && chown -R abc:abc /home/abc/lolminer
     
-RUN cd /home/abc/lolminer \
-    && wget -O lolminer.tar.gz https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.83/lolMiner_v1.83_Lin64.tar.gz
+RUN wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.83/lolMiner_v1.83_Lin64.tar.gz
 
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
