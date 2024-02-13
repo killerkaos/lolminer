@@ -30,7 +30,7 @@ ENV HOME=/home/abc
 RUN mkdir /home/abc && mkdir /home/abc/lolminer \
     chown -R abc:abc /home/abc
 
-RUN cd /home/abc/lolminer
+RUN cd /home/abc/lolminer \
     && wget -O lolminer.tar.gz https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.83/lolMiner_v1.83_Lin64.tar.gz \
     && tar xvf lolminer.tar.gz --strip-components 1 -C /lolminer
 
