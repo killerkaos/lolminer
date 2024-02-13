@@ -24,7 +24,7 @@
   <Config Name="WebUI" Target="7862" Default="7860" Mode="tcp" Description="http" Type="Port" Display="always" Required="true" Mask="false">7862</Config>
   <Config Name="NVIDIA Driver Capabilities" Target="NVIDIA_DRIVER_CAPABILITIES" Default="all" Mode="" Description="" Type="Variable" Display="always" Required="false">all</Config>
   <Config Name="NVIDIA Visible" Target="NVIDIA_VISIBLE_DEVICES" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">all</Config>
-  <Config Name="lolminer" Target="/home/abc/lolminer/" Default="/mnt/cache/appdata/lolminer/lolminer/" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/lolminer/lolminer/</Config>
+  <Config Name="lolminer" Target="/home/abc/" Default="/mnt/cache/appdata/lolminer/" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/lolminer/</Config>
   <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
   <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
