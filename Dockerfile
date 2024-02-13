@@ -28,10 +28,9 @@ RUN chmod +x /custom-cont-init.d/init-d.sh
 ENV XDG_CONFIG_HOME=/home/abc
 ENV HOME=/home/abc
 RUN mkdir /home/abc \
-    chown -R abc:abc /home/abc
-
-RUN mkdir /home/abc/lolminer
-
+    && mkdir /home/abc/lolminer \
+    && chown -R abc:abc /home/abc
+    
 RUN cd /home/abc/lolminer \
     && wget -O lolminer.tar.gz https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.83/lolMiner_v1.83_Lin64.tar.gz \
     && tar xvf lolminer.tar.gz --strip-components 1 -C /lolminer
