@@ -28,11 +28,9 @@ RUN chmod +x /custom-cont-init.d/init-d.sh
 ENV XDG_CONFIG_HOME=/home/abc
 ENV HOME=/home/abc
 RUN mkdir /home/abc \
-    && mkdir /home/abc/lolminer \
     && chown -R abc:abc /home/abc \
-    && chown -R abc:abc /home/abc/lolminer
     
-RUN cd /home/abc/lolminer \
+RUN mkdir /home/abc/lolminer \
    && wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.83/lolMiner_v1.83_Lin64.tar.gz
 
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
