@@ -33,7 +33,7 @@ RUN mkdir /home/abc \
     
 RUN cd /home/abc/lolminer \
     && wget -O lolminer.tar.gz https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.83/lolMiner_v1.83_Lin64.tar.gz \
-    && tar xvf lolminer.tar.gz --strip-components 1 -C /lolminer
+    && tar xvf lolminer.tar.gz --strip-components 1 -C /home/abc/lolminer
 
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
